@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
+
+:root {
+  --color-main: rgba(255, 241, 13, 1);
+  --color-01: rgba(0, 0, 0, 1);
+  --color-02: rgba(255, 255, 255, 1);
+  --color-03: rgba(236, 238, 247, 1);
+  --color-04: rgba(241, 242, 249, 1);
+  --color-05: rgba(3, 16, 16, 1);
+  --color-06: rgba(68, 72, 73, 1);
+  --color-07: rgba(196, 196, 196, 1);
+  --color-08: rgba(218, 221, 240, 1);
+  --color-09: rgba(255, 24, 193, 1);
+  --color-11: rgba(224, 139, 12, 1);
+  --color-13: rgba(9, 236, 244, 1);
+  --color-success: rgba(11, 153, 106, 1);
+  --color-error: rgba(224, 12, 12, 1);
+  --radius-01: 3px;
+  --radius-02: 6px;
+  --radius-03: 48px;
+  --radius-04: 20px;
+  --label-size: 10px;
+}
+
 @tailwind utilities;

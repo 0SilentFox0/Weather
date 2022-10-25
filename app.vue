@@ -1,13 +1,13 @@
 <template>
-  <div class="container m-auto p-4">
-    <h1 class="text-4xl font-bold text-blue mb-4">Weather app</h1>
+  <div class="container p-4">
+    <h1 class="text-4xl font-bold text-13 mb-4">Weather app</h1>
     <div class="flex flex-col">
-      <div class="flex gap-4">
+      <div class="flex gap-1">
         <div
-          class="tab border-1 p-2"
+          class="tab border-1 p-2 box-border border-b-0"
           v-for="city in cities"
           :key="city"
-          :class="{ 'bg-slate-400': currentCity === city }"
+          :class="{ 'bg-slate-400 border-l-0': currentCity === city }"
           @click="currentCity = city"
         >
           {{ city }}
@@ -15,6 +15,7 @@
       </div>
       <div class="flex justify-between items-start bg-slate-400 p-6">
         <div class="flex flex-col" v-if="weather">
+          <span class="text-xl">{{ formatDate(date) }}</span>
           <div class="flex items-center">
             {{ currentWeather.condition.text }}
             <img
@@ -82,4 +83,8 @@ onUpdated(async () => {
 });
 </script>
 
-<style></style>
+<style>
+.tab {
+  border-top-right-radius: 10px;
+}
+</style>

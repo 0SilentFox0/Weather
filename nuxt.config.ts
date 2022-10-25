@@ -14,5 +14,7 @@ export default defineNuxtConfig({
     },
   },
 
+  buildModules: ["@nuxtjs/tailwindcss"],
+
   css: ["@/assets/css/main.css"],
 });
