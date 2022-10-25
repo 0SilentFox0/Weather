@@ -57,29 +57,24 @@ const cities = ["Tokio", "Kiev", "New York"];
 const currentCity = ref(cities[0]);
 
 const date = ref(new Date());
-const weather = ref(null);
 
-const getWeather = async () => {
-  const { data } = await useLazyFetch(
-    () => `forecast.json?key=${API_KEY}&q=${currentCity.value}&days=10&aqi=no&alerts=no
+const { data: weather, refresh: refreshWeather } = await useLazyFetch(
+  () => `forecast.json?key=${API_KEY}&q=${currentCity.value}&days=10&aqi=no&alerts=no
 `,
-    {
-      baseURL: "https://api.weatherapi.com/v1/",
-      pick: ["forecast"],
-    }
-  );
-  weather.value = data.value.forecast.forecastday;
-};
-
-await getWeather();
-
+  {
+    baseURL: "https://api.weatherapi.com/v1/",
+    pick: ["forecast"],
+  }
+);
 const currentWeather = computed(() => {
   if (weather.value)
-    return weather.value.find((day) => day.date === formatDate(date.value)).day;
+    return weather.value.forecast.forecastday.find(
+      (day) => day.date === formatDate(date.value)
+    ).day;
 });
 
-onUpdated(async () => {
-  await getWeather();
+onUpdated(() => {
+  refreshWeather();
 });
 </script>
 

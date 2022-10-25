@@ -41,6 +41,7 @@ module.exports = {
       xl: "1920",
       // => @media (min-width: 1280px) { ... }
     },
+
     container: {
       center: true,
       padding: {
