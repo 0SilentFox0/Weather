@@ -63,7 +63,7 @@ const getWeather = async () => {
     () => `forecast.json?key=${API_KEY}&q=${currentCity.value}&days=10&aqi=no&alerts=no
 `,
     {
-      baseURL: "http://api.weatherapi.com/v1/",
+      baseURL: "https://api.weatherapi.com/v1/",
       pick: ["forecast"],
     }
   );
